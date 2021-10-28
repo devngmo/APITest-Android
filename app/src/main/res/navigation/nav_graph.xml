@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ApiBrowser">
+
+    <fragment
+        android:id="@+id/ApiBrowser"
+        android:name="tml.tools.apitest.modules.apibrowser.ApiBrowserFragment"
+        android:label="@string/api_browser"
+        tools:layout="@layout/fragment_apibrowser">
+
+        <action
+            android:id="@+id/action_FirstFragment_to_SecondFragment"
+            app:destination="@id/ApiEditor" />
+        <action
+            android:id="@+id/action_ApiBrowser_to_ApiRunner"
+            app:destination="@id/ApiRunner" />
+    </fragment>
+    <fragment
+        android:id="@+id/ApiEditor"
+        android:name="tml.tools.apitest.modules.apieditor.ApiEditorFragment"
+        android:label="@string/api_editor"
+        tools:layout="@layout/fragment_apieditor">
+
+        <action
+            android:id="@+id/action_SecondFragment_to_FirstFragment"
+            app:destination="@id/ApiBrowser" />
+    </fragment>
+    <fragment
+        android:id="@+id/ApiRunner"
+        android:name="tml.tools.apitest.modules.apirunner.ApiRunnerFragment"
+        android:label="@string/api_runner"
+        tools:layout="@layout/fragment_apirunner">
+
+        <argument
+            android:name="api_id"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_ApiRunner_to_BodyEditor"
+            app:destination="@id/BodyEditor" />
+    </fragment>
+    <fragment
+        android:id="@+id/BodyEditor"
+        android:name="tml.tools.apitest.modules.jsoneditor.JsonEditorFragment"
+        android:label="@string/json_editor"
+        tools:layout="@layout/fragment_jsoneditor">
+
+        <argument
+            android:name="jsonText"
+            app:argType="string" />
+    </fragment>
+</navigation>

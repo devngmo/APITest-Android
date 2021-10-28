@@ -1,0 +1,19 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="tml.tools.apitest.MainActivity">
+
+    <item
+        android:icon="@drawable/ic_baseline_save_24"
+        android:id="@+id/action_save"
+        android:orderInCategory="10"
+        android:title="@string/save"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:icon="@drawable/ic_baseline_content_copy_24_black"
+        android:id="@+id/action_save_as"
+        android:orderInCategory="20"
+        android:title="@string/save_as"
+        app:showAsAction="never" />
+</menu>

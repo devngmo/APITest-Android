@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="api"
+            type="tml.tools.apitest.modules.apieditor.ApiEditViewModel" />
+
+        <variable
+            name="httpMethodList"
+            type="java.util.List&lt;String&gt;" />
+    </data>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context=".modules.apieditor.ApiEditorFragment">
+
+
+    <com.google.android.material.textfield.TextInputEditText
+        android:id="@+id/ae_name"
+        android:hint="API Name"
+        android:text="@={api.name}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"></com.google.android.material.textfield.TextInputEditText>
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:layout_marginTop="20dp"
+        android:hint="Domain"
+        android:text="@={api.domain}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+        android:layout_marginTop="20dp"
+        android:hint="Function"
+        android:text="@={api.function}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:layout_marginTop="20dp"
+        app:nameList="@{httpMethodList}"
+        android:selectedItemPosition="@={api.methodIndex}"
+        android:id="@+id/ae_httpMethod"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>

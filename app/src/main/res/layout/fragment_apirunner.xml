@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="runVM"
+            type="tml.tools.apitest.modules.apirunner.ApiRunnerViewModel" />
+    </data>
+
+    <ScrollView
+        tools:context=".modules.apibrowser.ApiBrowserFragment"
+        android:background="#000"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:paddingHorizontal="10dp"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:id="@+id/ar_method"
+                    android:textColor="#FF7300"
+                    android:paddingBottom="10dp"
+                    android:hint="GET"
+                    android:textColorHint="#FF7300"
+                    android:textSize="10pt"
+                    android:text="@{runVM.method}"
+                    android:paddingRight="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:id="@+id/ar_name"
+                    android:textColor="#53CFC4"
+                    android:paddingBottom="10dp"
+                    android:hint="API Name"
+                    android:textColorHint="#53CFC4"
+                    android:textSize="10pt"
+                    android:text="@{runVM.name}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <TextView
+                android:id="@+id/ar_url"
+                android:paddingHorizontal="10dp"
+                android:textColor="#ACACAC"
+                android:padding="10dp"
+                android:hint="https://domain.api/foo"
+                android:textColorHint="#ACACAC"
+                android:textSize="10pt"
+                android:text="@{runVM.url}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/hpfTabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Headers" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Params" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Form" />
+            </com.google.android.material.tabs.TabLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/hpfList"
+                tools:listitem="@layout/propertylist_item"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/hpfAdd"
+                android:layout_marginHorizontal="10dp"
+                android:padding="10dp"
+                android:background="#0088FF"
+                android:textSize="10pt"
+                android:text="@{runVM.btnAddLabel}"
+                android:textColor="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_gravity="center_vertical"
+                    android:background="#262626"
+                    android:textColor="#FF7300"
+                    android:text="Body Type"
+                    android:padding="4dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"></TextView>
+
+                <androidx.appcompat.widget.AppCompatSpinner
+                    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                    android:layout_weight="1"
+                    android:id="@+id/bodyTypePicker"
+                    app:nameList="@{runVM.bodyTypeNameList}"
+                    android:selectedItemPosition="@={runVM.bodyTypeIndex}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:minHeight="100dp"
+                android:background="#222"
+                android:id="@+id/bodyText"
+                android:gravity="top"
+                android:padding="10dp"
+                android:textColor="@color/white"
+                android:text="@{runVM.bodyText}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+            <Button
+                android:id="@+id/btnRun"
+                android:text="@{runVM.method}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:layout_gravity="center_vertical"
+                android:background="#262626"
+                android:textColor="#FF7300"
+                android:text="Results"
+                android:padding="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"></TextView>
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/resultTabs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Raw" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Prettier" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Test" />
+            </com.google.android.material.tabs.TabLayout>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_marginBottom="20dp"
+                android:minHeight="100dp"
+                android:background="#333"
+                android:textColor="@color/white"
+                android:text="@{runVM.runResultDisplayString}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</layout>

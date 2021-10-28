@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <variable
+            name="kvp"
+            type="tml.tools.apitest.domain.models.KeyValuePair" />
+    </data>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:background="#000"
+    >
+        <TextView
+            android:textColor="#FFC107"
+            android:padding="10dp"
+            android:hint="Content-Type"
+            android:textColorHint="#FFC107"
+            android:textSize="8pt"
+            android:text="@{kvp.key}"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <TextView
+            android:textColor="#fff"
+            android:paddingVertical="10dp"
+            android:hint="application/json"
+            android:textColorHint="#fff"
+            android:textSize="8pt"
+            android:text="@{kvp.value}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#444"
+        />
+</androidx.appcompat.widget.LinearLayoutCompat>
+</layout>
